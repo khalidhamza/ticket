@@ -103,7 +103,14 @@ class TicketController extends Controller
         return redirect('ticket');
     }
 
-   
+   public function updateStatus(Request $request, $id)
+   {
+        $ticket =ticket::find($id);
+        $ticket->status      = $request->input('status');
+        $ticket->update();
+        return redirect('ticket');
+        //return view('ticket-details');
+   }
 
     /**
      * Remove the specified resource from storage.

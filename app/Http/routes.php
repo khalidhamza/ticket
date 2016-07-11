@@ -30,6 +30,7 @@ Route::post('login', 'LoginController@loginUser');
 
 Route::group(['middleware'=>'auth'],function(){
 	Route::resource('ticket', 'TicketController');
+	route::post('create','TicketController@updateStatus');
 });
 
 Route::get('logout', 'LoginController@logout');
